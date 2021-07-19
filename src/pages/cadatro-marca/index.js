@@ -1,8 +1,8 @@
 import { Button, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import useErros from '../hooks/useErros';
-import MarcaService from '../services/MarcaService';
+import useErrors from '../../hooks/errors';
+import MarcaService from '../../services/marca/service';
 
 function CadastroMarca() {
 
@@ -22,7 +22,7 @@ function CadastroMarca() {
         }
     }
 
-    const [erros, validarCampos, possoEnviar] = useErros(validacoes);
+    const [erros, validarCampos, possoEnviar] = useErrors(validacoes);
 
     function cancelar() {
         history.goBack();

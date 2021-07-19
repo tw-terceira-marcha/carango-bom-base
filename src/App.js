@@ -5,8 +5,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import CadastroMarca from './pages/CadastroMarca';
-import ListagemMarcas from './pages/ListagemMarcas';
+import CadastroMarca from './pages/cadatro-marca/index';
+import ListagemMarcas from './pages/listagem-marca/index';
 
 const muiTheme = createMuiTheme({
   palette: {
