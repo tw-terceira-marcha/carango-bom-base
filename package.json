@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "fontsource-roboto": "^4.0.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
@@ -23,6 +23,11 @@
     "test": "react-scripts test --coverage --watchAll=false",
     "test:dev": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "watchPathIgnorePatterns": [
+      "\\.#.*"
+    ]
   },
   "eslintConfig": {
     "extends": [
