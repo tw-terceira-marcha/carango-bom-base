@@ -1,6 +1,6 @@
 const VehicleService = {
   getList() {
-    return fetch('https://carango-bom-api.herokuapp.com/vehicles')
+    return fetch('https://carango-bom-api.herokuapp.com/veiculos')
       .then(r => r.json());
   },
 };

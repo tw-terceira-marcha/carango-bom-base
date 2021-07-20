@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "brand": "Ford",
+        "model": "Ka",
+        "year": 2019,
+        "value": 20000
+    },
+    {
+        "id": 2,
+        "brand": "VW",
+        "model": "Polo",
+        "year": 2018,
+        "value": 30000
+    },
+    {
+        "id": 3,
+        "brand": "Chevrolet",
+        "model": "Onix",
+        "year": 2021,
+        "value": 15000
+    }
+]
