@@ -1,0 +1,13 @@
+.material-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: flex;
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  background-color: white;
+}
