@@ -1,0 +1,9 @@
+.list-container { 
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.list-element {
+    grid-column: span 3;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import VehicleService from '../../../services/vehicle/service';
 import VehicleCard from '../../ui/vehicle-card';
+import './styles.scss';
 
 const VehicleList = () => {
     const [vehicles, setVehicles] = useState([]);
@@ -13,11 +14,11 @@ const VehicleList = () => {
     }
 
     return (
-        <>
+        <section className='list-container'>
             {
-                vehicles.map(item => <VehicleCard key={item.id} data={item}></VehicleCard>)
+                vehicles.map(item => <VehicleCard className="list-element" key={item.id} data={item}></VehicleCard>)
             }
-        </>
+        </section>
     );
 
 };

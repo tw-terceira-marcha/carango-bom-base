@@ -4,10 +4,11 @@ import { ptBR } from '@material-ui/core/locale';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import BrandRegister from './pages/brand-register/index';
 import BrandList from './pages/brand-list/index';
 import VehicleList from './components/container/vehicle-list';
+import HomePage from './pages/home-page';
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -52,10 +53,10 @@ function App() {
               <Route path='/alteracao-marca/:id'>
                 <BrandRegister></BrandRegister>
               </Route>
-              <Route path="/vehicle-list">
-                <VehicleList></VehicleList>
-              </Route>
               <Route path="/">
+                <HomePage></HomePage>
+              </Route>
+              <Route path="/brand-list">
                 <BrandList></BrandList>
               </Route>
             </Switch>

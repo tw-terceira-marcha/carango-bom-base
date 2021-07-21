@@ -2,14 +2,14 @@ import React from 'react'
 import { Card, CardContent } from '@material-ui/core';
 import { formatCurrency } from '../../../utils/formatter';
 
-const VehicleCard = ({data}) => {
+const VehicleCard = ({ data, ...props }) => {
     return (
-        <Card data-testid='vehicle-card'>
+        <Card data-testid='vehicle-card' {...props}>
             <CardContent>
-                <p>{data.marca?.nome}</p>
-                <p>{data.modelo}</p>
+                <h4>{data.marca?.nome}</h4>
+                <h2>{data.modelo}</h2>
                 <p>{data.ano}</p>
-                <p>{formatCurrency(data.valor)}</p>
+                <h3>{formatCurrency(data.valor)}</h3>
             </CardContent>
         </Card>
     );
