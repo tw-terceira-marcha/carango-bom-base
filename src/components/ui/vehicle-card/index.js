@@ -4,12 +4,12 @@ import { formatCurrency } from '../../../utils/formatter';
 
 const VehicleCard = ({data}) => {
     return (
-        <Card props={} data-testid='vehicle-card'>
+        <Card data-testid='vehicle-card'>
             <CardContent>
-                <p>{data.brand}</p>
-                <p>{data.model}</p>
-                <p>{data.year}</p>
-                <p>{formatCurrency(data.value)}</p>
+                <p>{data.marca?.nome}</p>
+                <p>{data.modelo}</p>
+                <p>{data.ano}</p>
+                <p>{formatCurrency(data.valor)}</p>
             </CardContent>
         </Card>
     );

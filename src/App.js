@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import BrandRegister from './pages/brand-register/index';
 import BrandList from './pages/brand-list/index';
+import VehicleList from './components/container/vehicle-list';
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path='/alteracao-marca/:id'>
                 <BrandRegister></BrandRegister>
+              </Route>
+              <Route path="/vehicle-list">
+                <VehicleList></VehicleList>
               </Route>
               <Route path="/">
                 <BrandList></BrandList>

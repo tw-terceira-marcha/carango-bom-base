@@ -15,7 +15,7 @@ const VehicleList = () => {
     return (
         <>
             {
-                vehicles.map(item => <VehicleCard data={item}></VehicleCard>)
+                vehicles.map(item => <VehicleCard key={item.id} data={item}></VehicleCard>)
             }
         </>
     );
