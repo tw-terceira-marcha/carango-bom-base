@@ -7,8 +7,8 @@ import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 import BrandRegister from './pages/brand-register/index';
 import BrandList from './pages/brand-list/index';
-import VehicleList from './components/container/vehicle-list';
 import HomePage from './pages/home-page';
+import ApplicationHeader from './components/container/header';
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -43,6 +43,7 @@ function App() {
     <ThemeProvider theme={muiTheme}>
       <div className={classes.root}>
         <CssBaseline />
+        <ApplicationHeader></ApplicationHeader>
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Container component="article" maxWidth="md">
