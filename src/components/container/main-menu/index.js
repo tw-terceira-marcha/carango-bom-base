@@ -27,6 +27,7 @@ const ApplicationMainMenu = ({ menuOpen, setMenuOpen }) => {
                 role="presentation"
                 onClick={() => setMenuOpen(false)}
                 onKeyDown={() => setMenuOpen(false)}
+                data-testid='menu'
             >
                 <List>
                     {options.map((option, index) => (

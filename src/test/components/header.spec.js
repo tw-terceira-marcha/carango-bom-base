@@ -9,8 +9,8 @@ test('show header when the user is not logged', async () => {
 
     expect(screen.getByText('Carango Bom')).toBeVisible();
 
-    fireEvent.click(screen.getByTestId('menu'));
+    fireEvent.click(screen.getByTestId('menu-button'));
 
-    expect(screen.getByText('Login')).toBeVisible();
+    expect(screen.getByTestId('menu')).toBeVisible();
 
 })

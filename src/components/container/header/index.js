@@ -19,6 +19,7 @@ const ApplicationHeader = () => {
                         aria-label="open drawer"
                         onClick={() => setMenuOpen(!menuOpen)}
                         edge="start"
+                        data-testid='menu-button'
                     >
                         <MenuIcon />
                     </IconButton>

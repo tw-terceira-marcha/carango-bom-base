@@ -23,7 +23,7 @@ test('loads and displays a list of cards', async () => {
     render(<VehicleList />);
 
     const listItems = await screen.findAllByTestId('vehicle-card');
-    expect(listItems).toHaveLength(list.length());
+    expect(listItems).toHaveLength(list.length);
 
     listItems.forEach((item, index) => {
 
