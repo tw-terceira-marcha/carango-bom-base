@@ -31,7 +31,7 @@ const ApplicationHeader = () => {
             <ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}>
             </ApplicationMainMenu>
         </>
-    )
-}
+    );
+};
 
 export default ApplicationHeader;
