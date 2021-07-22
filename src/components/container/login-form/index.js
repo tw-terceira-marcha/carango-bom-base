@@ -21,25 +21,25 @@ const LoginForm = ({ onSubmit }) => {
         event.preventDefault();
     };
 
-	return (
-		<form
-          onSubmit={submit}
-          className='login-form'>
+    return (
+        <form
+            onSubmit={submit}
+            className='login-form'>
             <div className='login-inputs'>
                 <TextField
-                  type='text'
-                  inputProps={{ 'data-testid': 'login-input' }}
-                  onChange={loginChanged}/>
+                    type='text'
+                    inputProps={{ 'data-testid': 'login-input' }}
+                    onChange={loginChanged}/>
                 <TextField
-                  type='password'
-                  inputProps={{ 'data-testid': 'password-input' }}
-                  onChange={passChanged}/>
+                    type='password'
+                    inputProps={{ 'data-testid': 'password-input' }}
+                    onChange={passChanged}/>
             </div>
             <div className='login-button'>
                 <Button data-testid='login-button' type='submit'>Entrar</Button>
             </div>
         </form>
-	);
+    );
 };
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Card, CardContent } from '@material-ui/core';
 import { formatCurrency } from '../../../utils/formatter';
 

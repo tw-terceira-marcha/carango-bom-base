@@ -1,9 +1,15 @@
-import { baseGet } from "../base-service";
-const route = "vehicles/"
+import { baseGet } from '../base-service';
+const route = 'veiculos/';
 const VehicleService = {
-  getList() {
-    return baseGet(route)
-  },
+    async getList() {
+        const { status, body, ok } = await baseGet(route);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: [] };
+        }
+    },
 };
 
 export default VehicleService;

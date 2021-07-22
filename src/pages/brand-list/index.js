@@ -32,7 +32,7 @@ const BrandList = () => {
 
     const update = () => {
         history.push('/alteracao-marca/' + selectedBrand.id);
-    }
+    };
 
     const deleteBrand = () => {
         BrandService.delete(selectedBrand)
@@ -40,7 +40,7 @@ const BrandList = () => {
                 setSelectedBrand(null);
                 loadBrands();
             });
-    }
+    };
 
     // TODO: Avaliar remover disable na próxima linha
     // eslint-disable-next-line
@@ -49,7 +49,7 @@ const BrandList = () => {
     const loadBrands = () => {
         BrandService.getList()
             .then(data => setBrands(data));
-    }
+    };
 
     return (
         <div style={{ height: 300, width: '100%' }}>
@@ -65,7 +65,7 @@ const BrandList = () => {
                     disabled={!selectedBrand}
                     onClick={() => deleteBrand()}>
                     Excluir
-                        </Button>
+                </Button>
                 <Button
                     className={classes.actions}
                     variant="contained"
@@ -81,6 +81,6 @@ const BrandList = () => {
             </Fab>
         </div>
     );
-}
+};
 
 export default BrandList;

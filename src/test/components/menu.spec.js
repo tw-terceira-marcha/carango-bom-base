@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { render, screen, within } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { render, within } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import ApplicationMainMenu from '../../components/container/main-menu';
 
 const optionNames = ['Entrar'];
@@ -12,7 +11,7 @@ test('menu when the user is not logged', async () => {
 
     const setMenuOpen = (state) => {
         menuOpen = state;
-    }
+    };
 
     const { findAllByTestId } = render(<ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />);
     const listItems = await findAllByTestId('menu-item');
@@ -25,4 +24,4 @@ test('menu when the user is not logged', async () => {
 
         expect(getByText(name)).toBeInTheDocument();
     });
-})
+});

@@ -4,8 +4,6 @@ import React from 'react';
 
 const openLoginModal = () => { };
 
-
-
 const ApplicationMainMenu = ({ menuOpen, setMenuOpen }) => {
 
     const MainMenuOptions = () => {
@@ -30,15 +28,15 @@ const ApplicationMainMenu = ({ menuOpen, setMenuOpen }) => {
                 data-testid='menu'
             >
                 <List>
-                    {options.map((option, index) => (
+                    {options.map((option) => (
                         <ListItem button key={option.name} data-testid='menu-item' onClick={option.action}>
                             <ListItemText primary={option.name} />
                         </ListItem>
                     ))}
                 </List>
             </div>
-        )
-    }
+        );
+    };
 
     return (
         <SwipeableDrawer
@@ -49,8 +47,8 @@ const ApplicationMainMenu = ({ menuOpen, setMenuOpen }) => {
         >
             {MainMenuOptions()}
         </SwipeableDrawer>
-    )
-}
+    );
+};
 
 
 export default ApplicationMainMenu;

@@ -11,7 +11,7 @@ const VehicleList = () => {
     const loadVehicles = async () => {
         const list = await VehicleService.getList();
         setVehicles(list);
-    }
+    };
 
     return (
         <section className='list-container'>

@@ -1,28 +1,58 @@
-import {basePost, baseGet, baseDelete} from '../base-service'
-const route = "brand/"
+import { basePost, baseGet, baseDelete, basePut } from '../base-service';
+const route = 'brand/';
 
 const BrandService = {
-  create(brand) {
-    return basePost(route, brand);
-  },
+    async create(brand) {
+        const { status, body, ok } = await basePost(route, brand);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: null };
+        }
+    },
 
-  update(brand) {
-    return basePost(route, brand);
-  },
+    async update(brand) {
+        const { status, body, ok } = await basePut(route, brand);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: null };
+        }
+    },
 
-  getById(id) {
-    const routeById = route + id;
-    return baseGet(routeById);
-  },
+    async getById(id) {
+        const routeById = route + id;
+        const { status, body, ok } = await baseGet(routeById);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: null };
+        }
+    },
 
-  getList() {
-    return baseGet(route);
-  },
+    async getList() {
+        const { status, body, ok } = await baseGet(route);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: [] };
+        }
+    },
 
-  deleteById(id) {
-    const routeDelete = route + id;
-    return baseDelete(routeDelete);
-  }
+    async deleteById(id) {
+        const routeDelete = route + id;
+        const { status, body, ok } = await baseDelete(routeDelete);
+        if (ok) {
+            const data = await body.json();
+            return { ok, status, data };
+        } else {
+            return { ok, status, data: null };
+        }
+    }
 };
 
 export default BrandService;

@@ -11,7 +11,7 @@ const useErrors = (validations) => {
         const newState = { ...errors };
         newState[name] = validations[name](value);
         setErrors(newState);
-    }
+    };
 
     const canSend = () => {
         for (let campo in errors) {
@@ -20,18 +20,18 @@ const useErrors = (validations) => {
             }
         }
         return true;
-    }
+    };
 
     return [errors, validateFields, canSend];
-}
+};
 
 const createInitialState = (validations) => {
     const initialState = {};
     for (let field in validations) {
-        initialState[field] = { valido: true, texto: "" };
+        initialState[field] = { valido: true, texto: '' };
     }
 
     return initialState;
-}
+};
 
 export default useErrors;

@@ -4,16 +4,16 @@ import './styles.scss';
 
 
 const Modal = ({ open, onClose, Component }) => {
-	return (
+    return (
         <MaterialModal
-          open={open}
-          onClose={onClose}
-          className='material-modal'>
-              <div className='modal'>
-                    {Component}
-              </div>
+            open={open}
+            onClose={onClose}
+            className='material-modal'>
+            <div className='modal'>
+                {Component}
+            </div>
         </MaterialModal>
-	);
+    );
 };
 
 

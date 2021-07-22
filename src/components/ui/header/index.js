@@ -1,13 +1,9 @@
-import { AppBar, IconButton, SwipeableDrawer, Toolbar } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import React, { useState } from 'react';
-import ApplicationMainMenu from '../main-menu';
+import React from 'react';
 
 
-const ApplicationHeader = () => {
-
-    const [menuOpen, setMenuOpen] = useState(false);
-
+const ApplicationHeader = ({ menuOpen, setMenuOpen }) => {
     return (
         <>
             <AppBar
@@ -28,8 +24,6 @@ const ApplicationHeader = () => {
                     </h1>
                 </Toolbar>
             </AppBar>
-            <ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}>
-            </ApplicationMainMenu>
         </>
     );
 };

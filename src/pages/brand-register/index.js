@@ -6,7 +6,7 @@ import BrandService from '../../services/brand/service';
 
 const BrandRegister = () => {
 
-    const [brand, setBrand] = useState("");
+    const [brand, setBrand] = useState('');
 
     const history = useHistory();
 
@@ -17,16 +17,16 @@ const BrandRegister = () => {
             if (data && data.length >= 3) {
                 return { valid: true };
             } else {
-                return { valid: false, text: "Marca deve ter ao menos 3 letras." };
+                return { valid: false, text: 'Marca deve ter ao menos 3 letras.' };
             }
         }
-    }
+    };
 
     const [errors, validateFields, canSend] = useErrors(validations);
 
     const cancel = () => {
         history.goBack();
-    }
+    };
 
     // TODO: Avaliar remover disable na próxima linha
     useEffect(() => {
@@ -48,7 +48,7 @@ const BrandRegister = () => {
                 } else {
                     BrandService.create({ name: brand })
                         .then(res => {
-                            setBrand("");
+                            setBrand('');
                             history.goBack();
                         });
                 }
@@ -86,6 +86,6 @@ const BrandRegister = () => {
             </Button>
         </form>
     );
-}
+};
 
 export default BrandRegister;
