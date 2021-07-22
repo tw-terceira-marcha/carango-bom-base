@@ -1,31 +1,27 @@
+import {basePost, baseGet, baseDelete} from '../base-service'
+const route = "brand/"
+
 const BrandService = {
-  create(marca) {
-    return fetch('https://carango-bom-api.herokuapp.com/marcas', {
-      method: 'POST',
-      body: JSON.stringify(marca)
-    }).then(r => r.json());
+  create(brand) {
+    return basePost(route, brand);
   },
 
-  update(marca) {
-    return fetch('https://carango-bom-api.herokuapp.com/marcas/' + marca.id, {
-      method: 'PUT',
-      body: JSON.stringify(marca)
-    }).then(r => r.json());
+  update(brand) {
+    return basePost(route, brand);
   },
 
   getById(id) {
-    return fetch('https://carango-bom-api.herokuapp.com/marcas/' + id).then(r => r.json());
+    const routeById = route + id;
+    return baseGet(routeById);
   },
 
   getList() {
-    return fetch('https://carango-bom-api.herokuapp.com/marcas').then(r => r.json());
+    return baseGet(route);
   },
 
-  delete(marca) {
-    return fetch('https://carango-bom-api.herokuapp.com/marcas/' + marca.id, {
-      method: 'DELETE',
-    })
-      .then(r => r.json());
+  deleteById(id) {
+    const routeDelete = route + id;
+    return baseDelete(routeDelete);
   }
 };
 

@@ -1,7 +1,8 @@
+import { baseGet } from "../base-service";
+const route = "vehicles/"
 const VehicleService = {
   getList() {
-    return fetch('https://carango-bom-api.herokuapp.com/veiculos')
-      .then(r => r.json());
+    return baseGet(route)
   },
 };
 
