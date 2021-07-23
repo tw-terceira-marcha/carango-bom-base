@@ -27,13 +27,12 @@ test('loads and displays a list of vehicle cards', async () => {
     render(<VehicleList />);
 
     const listItems = await screen.findAllByTestId('vehicle-card');
-    const expectedItems = list.body;
-    expect(listItems).toHaveLength(expectedItems.length);
+    expect(listItems).toHaveLength(list.length);
 
     listItems.forEach((item, index) => {
 
         const { getByText } = within(item);
-        const { modelo } = expectedItems[index];
+        const { modelo } = list[index];
 
         expect(getByText(modelo)).toBeInTheDocument();
     });
