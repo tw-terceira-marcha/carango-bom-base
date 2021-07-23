@@ -10,6 +10,8 @@ import BrandList from './pages/brand-list/index';
 import HomePage from './pages/home-page';
 import ApplicationHeader from './components/ui/header';
 import ApplicationMainMenu from './components/container/main-menu';
+import Modal from './components/ui/modal';
+import LoginForm from './components/container/login-form';
 
 const muiTheme = createMuiTheme({
     palette: {
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
 
     const [menuOpen, setMenuOpen] = useState(false);
-
+    const [openModal,setModalOpen] = useState(false);
     const classes = useStyles();
 
     return (
@@ -47,7 +49,8 @@ function App() {
             <div className={classes.root}>
                 <CssBaseline />
                 <ApplicationHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-                <ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                <ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} setModalOpen={setModalOpen}/>
+                <Modal open={openModal} onClose={() => setModalOpen(false)} Component={<LoginForm onSubmit={() => {}}/>}/>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
                     <Container component="article" maxWidth="md">
