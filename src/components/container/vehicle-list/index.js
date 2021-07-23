@@ -9,8 +9,12 @@ const VehicleList = () => {
     useEffect(() => loadVehicles(), []);
 
     const loadVehicles = async () => {
-        const list = await VehicleService.getList();
-        setVehicles(list);
+        const response = await VehicleService.getList();
+        setVehicles(response.data);
+
+        if (!response.ok) {
+            console.log('Not ok response');
+        }
     };
 
     return (

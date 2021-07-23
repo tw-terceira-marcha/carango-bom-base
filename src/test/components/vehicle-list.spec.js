@@ -8,6 +8,7 @@ import { render, screen, within } from '@testing-library/react';
 import VehicleList from '../../components/container/vehicle-list';
 
 const list = require('./../mock/vehicle-list.json');
+const error = require('./../mock/vehicle-error.json');
 
 const setupGetServer = (response) => {
     const server = setupServer(
@@ -26,12 +27,13 @@ test('loads and displays a list of vehicle cards', async () => {
     render(<VehicleList />);
 
     const listItems = await screen.findAllByTestId('vehicle-card');
-    expect(listItems).toHaveLength(list.length);
+    const expectedItems = list.body;
+    expect(listItems).toHaveLength(expectedItems.length);
 
     listItems.forEach((item, index) => {
 
         const { getByText } = within(item);
-        const { modelo } = list[index];
+        const { modelo } = expectedItems[index];
 
         expect(getByText(modelo)).toBeInTheDocument();
     });
@@ -40,16 +42,15 @@ test('loads and displays a list of vehicle cards', async () => {
 });
 
 test('loads an empty list of vehicle cards', async () => {
+
+    const server = setupGetServer(error);
+
     render(<VehicleList />);
 
-    const listItems = await screen.findAllByTestId('vehicle-card');
-    expect(listItems).toHaveLength(list.length);
+    const item = screen.queryByTestId('vehicle-card');
+    expect(item).toBeNull();
 
-    listItems.forEach((item, index) => {
+    // check the dialog component
 
-        const { getByText } = within(item);
-        const { modelo } = list[index];
-
-        expect(getByText(modelo)).toBeInTheDocument();
-    });
+    server.close();
 });

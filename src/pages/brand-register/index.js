@@ -42,12 +42,12 @@ const BrandRegister = () => {
             if (canSend()) {
                 if (id) {
                     BrandService.update({ id, name: brand })
-                        .then(res => {
+                        .then(() => {
                             history.goBack();
                         });
                 } else {
                     BrandService.create({ name: brand })
-                        .then(res => {
+                        .then(() => {
                             setBrand('');
                             history.goBack();
                         });

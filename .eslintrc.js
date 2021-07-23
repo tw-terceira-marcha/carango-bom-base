@@ -23,6 +23,8 @@ module.exports = {
         'test': true,
         'expect': true,
         'describe': true,
+        'module': true,
+        'jest': true
     },
     'rules': {
         'indent': [
