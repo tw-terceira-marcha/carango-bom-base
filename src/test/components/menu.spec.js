@@ -3,6 +3,8 @@ import React from 'react';
 import { render, within,fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ApplicationMainMenu from '../../components/container/main-menu';
+import LoginForm from '../../components/container/login-form';
+import Modal from '../../components/ui/modal';
 
 const optionNames = ['Entrar'];
 
@@ -37,14 +39,29 @@ test('open login modal in click enter button', async () => {
     expect(setLoginModalOpen).toHaveBeenCalledWith(true);
     expect(setMenuOpen).toHaveBeenCalledWith(false);
 
-})
+});
 
-test('close login modal in click out menu', async () => {
+test('close login modal in click in menu', async () => {
 
     const setLoginModalOpen = jest.fn();
     const setMenuOpen = jest.fn();
 
     const { getByTestId } = render(<ApplicationMainMenu menuOpen={true} setMenuOpen={setMenuOpen} setModalOpen={setLoginModalOpen}/>);
-    fireEvent.click(getByTestId("menu"));
+    fireEvent.click(getByTestId('menu'));
     expect(setMenuOpen).toHaveBeenCalledWith(false);
-})
+});
+
+test('open login modal', async () => {
+    var open = false;
+    
+    const setLoginModalOpen = jest.fn();
+    const setMenuOpen = () => {
+        open = true;
+    };
+
+    render(<ApplicationMainMenu menuOpen={true} setMenuOpen={setMenuOpen} setModalOpen={setLoginModalOpen}/>);
+    fireEvent.click(screen.getByTestId('login-button'));
+    render(<Modal open={open} Component={<LoginForm onSubmit={() => {}} />}/>);
+    expect(screen.getByTestId('login-input')).toBeTruthy();
+    expect(screen.getByTestId('password-input')).toBeTruthy();
+});

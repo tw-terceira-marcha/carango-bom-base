@@ -28,10 +28,12 @@ const LoginForm = ({ onSubmit }) => {
             <div className='login-inputs'>
                 <TextField
                     type='text'
+                    placeholder="Login"
                     inputProps={{ 'data-testid': 'login-input' }}
                     onChange={loginChanged}/>
                 <TextField
                     type='password'
+                    placeholder="Password"
                     inputProps={{ 'data-testid': 'password-input' }}
                     onChange={passChanged}/>
             </div>
