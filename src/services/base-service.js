@@ -1,7 +1,7 @@
-const baseFetch = async (route = '', body = '', method) => {
+const baseFetch = async (route = '', body, method) => {
     let args = { method };
 
-    if (body !== null) {
+    if (body) {
         args.body = JSON.stringify(body);
     }
 
