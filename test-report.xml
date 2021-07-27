@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/matheusmorato/carango-bom-base/src/test/components/login-form.spec.js">
+    <testCase name="login with success" duration="208"/>
+    <testCase name="Test login form login form has login input" duration="35"/>
+    <testCase name="Test login form login form has password input" duration="31"/>
+    <testCase name="Test login form login form has login button" duration="27"/>
+    <testCase name="Test login form login button has correct text" duration="33"/>
+    <testCase name="Test login form submit login form has correct data" duration="136"/>
+    <testCase name="Test login form submit login form has no data" duration="23"/>
+  </file>
+  <file path="/Users/matheusmorato/carango-bom-base/src/test/components/header.spec.js">
+    <testCase name="show header when the user is not logged" duration="101"/>
+  </file>
+  <file path="/Users/matheusmorato/carango-bom-base/src/test/components/vehicle-card.spec.js">
+    <testCase name="loads and displays card" duration="138"/>
+  </file>
+  <file path="/Users/matheusmorato/carango-bom-base/src/test/components/vehicle-list.spec.js">
+    <testCase name="loads and displays a list of vehicle cards" duration="213"/>
+    <testCase name="loads an empty list of vehicle cards" duration="8"/>
+  </file>
+  <file path="/Users/matheusmorato/carango-bom-base/src/test/components/menu.spec.js">
+    <testCase name="menu when the user is not logged" duration="124"/>
+    <testCase name="open login modal in click enter button" duration="89"/>
+    <testCase name="close login modal in click in menu" duration="48"/>
+    <testCase name="open login modal" duration="76"/>
+  </file>
+</testExecutions>
