@@ -41,14 +41,17 @@ test('open login modal in click enter button', async () => {
 
 });
 
-test('close login modal in click in menu', async () => {
+test('close login modal on click and on key down', async () => {
 
     const setLoginModalOpen = jest.fn();
     const setMenuOpen = jest.fn();
 
     const { getByTestId } = render(<ApplicationMainMenu menuOpen={true} setMenuOpen={setMenuOpen} setModalOpen={setLoginModalOpen}/>);
     fireEvent.click(getByTestId('menu'));
+    fireEvent.keyDown(getByTestId('menu'));
+
     expect(setMenuOpen).toHaveBeenCalledWith(false);
+    expect(setMenuOpen).toHaveBeenCalledTimes(2);
 });
 
 test('open login modal', async () => {
