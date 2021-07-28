@@ -11,10 +11,6 @@ const VehicleList = () => {
     const loadVehicles = async () => {
         const response = await VehicleService.getList();
         setVehicles(response.data);
-
-        if (!response.ok) {
-            console.log('Not ok response');
-        }
     };
 
     return (
