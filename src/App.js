@@ -12,6 +12,7 @@ import ApplicationHeader from './components/ui/header';
 import ApplicationMainMenu from './components/container/main-menu';
 import Modal from './components/ui/modal';
 import LoginForm from './components/container/login-form';
+import RegisterUserForm from './components/container/register-user-form';
 
 const muiTheme = createMuiTheme({
     palette: {
@@ -42,15 +43,28 @@ function App() {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [openModal,setModalOpen] = useState(false);
-    const classes = useStyles();
+    const [openRegister,setOpenRegister] = useState(false);
 
+    const classes = useStyles();
+    const registerOpen = () => {
+        setOpenRegister(!openRegister);
+    };
     return (
         <ThemeProvider theme={muiTheme}>
             <div className={classes.root}>
                 <CssBaseline />
                 <ApplicationHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
                 <ApplicationMainMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} setModalOpen={setModalOpen}/>
-                <Modal open={openModal} onClose={() => setModalOpen(false)} Component={<LoginForm onSubmit={() => {}}/>}/>
+                <Modal 
+                    open={openModal} 
+                    onClose={() => setModalOpen(false)} 
+                    Component={
+                        openRegister ? 
+                            <RegisterUserForm onSubmit={() => {}} /> :
+                            <LoginForm onSubmit={() => {}} registerOpen={registerOpen}/> 
+                    }
+                    
+                />
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
                     <Container component="article" maxWidth="md">

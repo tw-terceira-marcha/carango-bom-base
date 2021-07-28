@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
+// import { rest } from 'msw';
+// import { setupServer } from 'msw/node';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import LoginForm from '../../components/container/login-form';
@@ -65,6 +67,11 @@ describe(
         test('login button has correct text', async () => {
             render(<LoginForm/>);
             expect(screen.getByText('Entrar')).toBeTruthy();
+        });
+
+        test('register button', async () => {
+            render(<LoginForm />);
+            expect(screen.getByText('Cadastrar')).toBeTruthy();
         });
     }
 );

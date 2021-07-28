@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import './styles.scss';
 
 
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit, registerOpen }) => {
     const [ login, setLogin ] = useState('');
     const [ pass, setPass ] = useState('');
 
@@ -19,6 +19,10 @@ const LoginForm = ({ onSubmit }) => {
     const submit = (event) => {
         onSubmit(login, pass);
         event.preventDefault();
+    };
+
+    const openRegisterModal = () => {
+        registerOpen();
     };
 
     return (
@@ -38,7 +42,8 @@ const LoginForm = ({ onSubmit }) => {
                     onChange={passChanged}/>
             </div>
             <div className='login-button'>
-                <Button data-testid='login-button' type='submit'>Entrar</Button>
+                <Button data-testid='login-button' type='submit' >Entrar</Button>
+                <Button data-testid='register-button' type='button' color='secondary' onClick={openRegisterModal}>Cadastrar</Button>
             </div>
         </form>
     );
