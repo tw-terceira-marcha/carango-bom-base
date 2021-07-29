@@ -4,7 +4,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 // import { setupServer } from 'msw/node';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
-import LoginForm from '../../components/container/login-form';
+import LoginForm from '../../components/ui/login-form';
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import LoginService from '../../services/auth/service';

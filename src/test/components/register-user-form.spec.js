@@ -4,9 +4,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 
-import RegisterUserForm  from '../../components/container/register-user-form';
+import RegisterUserForm  from '../../components/ui/register-user-form';
 import Modal from '../../components/ui/modal';
-import LoginForm from '../../components/container/login-form';
+import LoginForm from '../../components/ui/login-form';
 
 describe('register form fields tests', () => {
 

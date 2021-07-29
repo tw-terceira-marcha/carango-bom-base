@@ -3,7 +3,7 @@ import React from 'react';
 import { render, within,fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ApplicationMainMenu from '../../components/container/main-menu';
-import LoginForm from '../../components/container/login-form';
+import LoginForm from '../../components/ui/login-form';
 import Modal from '../../components/ui/modal';
 
 const optionNames = ['Entrar'];
