@@ -1,19 +1,18 @@
 import StorageService from './storage';
 const { tokenKey } = StorageService;
 const baseFetch = async (route = '', body, method) => {
-    
+
     let headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json', 
+        'Content-Type': 'application/json',
     };
-    
+
     const token = StorageService.get(tokenKey);
 
     if(token) {
         headers.Authorization = `Bearer ${token}`;
     }
 
-    let args = { 
+    let args = {
         crossDomain:true,
         method,
         headers
