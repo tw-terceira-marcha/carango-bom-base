@@ -13,7 +13,7 @@ const successResponse = require('./../mock/login-success.json');
 
 const setupGetServer = (response) => {
     const server = setupServer(
-        rest.post('https://carango-bom-api.herokuapp.com/auth', (req, res, ctx) => {
+        rest.post(process.env.REACT_APP_API_BASE_URL + 'auth', (req, res, ctx) => {
             return res(ctx.json(response));
         })
     );

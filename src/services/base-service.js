@@ -22,7 +22,7 @@ const baseFetch = async (route = '', body, method) => {
         args.body = JSON.stringify(body);
     }
 
-    const response = await fetch('http://localhost:8080/' + route, args);
+    const response = await fetch(process.env.REACT_APP_API_BASE_URL + route, args);
 
     return response;
 };

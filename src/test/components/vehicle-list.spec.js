@@ -12,7 +12,7 @@ const error = require('./../mock/vehicle-error.json');
 
 const setupGetServer = (response) => {
     const server = setupServer(
-        rest.get('https://carango-bom-api.herokuapp.com/veiculos', (req, res, ctx) => {
+        rest.get(process.env.REACT_APP_API_BASE_URL + 'veiculos', (req, res, ctx) => {
             return res(ctx.json(response));
         })
     );
