@@ -1,11 +1,29 @@
+import StorageService from './storage';
+const { tokenKey } = StorageService;
 const baseFetch = async (route = '', body, method) => {
-    let args = { method };
+    
+    let headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json', 
+    };
+    
+    const token = StorageService.get(tokenKey);
+
+    if(token) {
+        headers.Authorization = `Bearer ${token}`;
+    }
+
+    let args = { 
+        crossDomain:true,
+        method,
+        headers
+    };
 
     if (body) {
         args.body = JSON.stringify(body);
     }
 
-    const response = await fetch('https://carango-bom-api.herokuapp.com/' + route, args);
+    const response = await fetch('http://localhost:8080/' + route, args);
 
     return response;
 };

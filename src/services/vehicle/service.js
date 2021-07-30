@@ -1,5 +1,5 @@
 import { baseGet } from '../base-service';
-const route = 'veiculos/';
+const route = 'veiculos';
 const VehicleService = {
     async getList() {
         const response = await baseGet(route);

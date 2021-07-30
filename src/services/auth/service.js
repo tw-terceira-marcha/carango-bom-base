@@ -1,6 +1,6 @@
 import { basePost } from '../base-service';
-const route = 'auth/';
-const LoginService = {
+const route = 'auth';
+const AuthService = {
     async login(email, password) {
         const response = await basePost(
             route, 
@@ -21,4 +21,4 @@ const LoginService = {
     },
 };
 
-export default LoginService;
+export default AuthService;
