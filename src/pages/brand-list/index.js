@@ -31,7 +31,7 @@ const BrandList = () => {
     const history = useHistory();
 
     const update = () => {
-        history.push('/alteracao-marca/' + selectedBrand.id);
+        history.push('/alteracao-marca/' + selectedBrand?.id);
     };
 
     const deleteBrand = () => {
