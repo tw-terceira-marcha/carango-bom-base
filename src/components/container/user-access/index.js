@@ -17,21 +17,33 @@ const UserAccess = ({openModal, setModalOpen}) => {
         const {data, status, ok} = await AuthService.login(login, password);
         if(ok){
             StorageService.set(tokenKey, data.token);
+            setModalOpen(false);
         }else {
-            console.log(status); 
+            console.log(status);
             // definir component do material ui para demonstrativo de erros no login
         }
-            
+
+    };
+
+    const userRegister = async (name, email, password) => {
+        const { status, ok } = await AuthService.register(name, email, password);
+        if (ok) {
+            await userLogin(email, password);
+        } else {
+            console.log(status);
+            // definir component do material ui para demonstrativo de erros no cadastro
+        }
+
     };
 
     return (
-        <Modal 
-            open={openModal} 
-            onClose={() => setModalOpen(false)} 
+        <Modal
+            open={openModal}
+            onClose={() => setModalOpen(false)}
             Component={
-                openRegister ? 
-                    <RegisterUserForm onSubmit={() => {}} /> :
-                    <LoginForm onSubmit={userLogin} registerOpen={registerOpen}/> 
+                openRegister ?
+                    <RegisterUserForm onSubmit={userRegister} /> :
+                    <LoginForm onSubmit={userLogin} registerOpen={registerOpen}/>
             }
         />
     );

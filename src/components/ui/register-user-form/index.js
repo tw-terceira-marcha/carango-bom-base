@@ -31,15 +31,10 @@ const RegisterUserForm = ({onSubmit}) => {
     };
 
     const submit = (event) => {
-        const userRegister = {
-            name,
-            login,
-            pass,
-            confirmPass,
-        };
-        onSubmit(userRegister);
+        // TODO: confirm password
+        onSubmit(name, login, pass);
         event.preventDefault();
-    }; 
+    };
 
     return (
         <form

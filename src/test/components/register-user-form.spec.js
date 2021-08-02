@@ -40,39 +40,35 @@ describe('register form fields tests', () => {
 describe('flow register use form with login component', () => {
     test('open login modal', async () => {
         var open = false;
-        
+
         const setMenuOpen = () => {
             open = true;
         };
-    
+
         render(<Modal open={true} Component={<LoginForm onSubmit={() => {}} registerOpen={setMenuOpen}/>}/>);
         fireEvent.click(screen.getByTestId('register-button'));
         render(
-            <Modal open={open} Component={ open ? 
+            <Modal open={open} Component={ open ?
                 <RegisterUserForm /> :
-                <LoginForm onSubmit={() => {}} registerOpen={setMenuOpen}/> 
+                <LoginForm onSubmit={() => {}} registerOpen={setMenuOpen}/>
             }/>
         );
         expect(screen.getByTestId('register-form')).toBeTruthy();
-    });  
+    });
 
     test('register form has correct handle fields', async () => {
         const name = 'myuser';
         const email = 'myEmail@gmail.com';
         const pass = 'mypass';
-        const confirmPass = 'mypass';
-
 
         let formName = '';
         let formEmail = '';
         let formPass = '';
-        let formConfirmPass = '';
 
-        const submit = (data) => {
-            formName = data.name;
-            formEmail = data.login;
-            formPass = data.pass;
-            formConfirmPass = data.confirmPass;
+        const submit = (name, login, pass) => {
+            formName = name;
+            formEmail = login;
+            formPass = pass;
         };
 
         render(<RegisterUserForm onSubmit={submit}/>);
@@ -80,20 +76,15 @@ describe('flow register use form with login component', () => {
         const nameInput = screen.getByTestId('name-input');
         const emailInput = screen.getByTestId('email-input');
         const passInput = screen.getByTestId('create-password-input');
-        const passConfirmPass = screen.getByTestId('confirm-password-input');
 
         userEvent.type(nameInput, name);
         userEvent.type(emailInput, email);
         userEvent.type(passInput, pass);
-        userEvent.type(passConfirmPass, confirmPass);
-
-
 
         fireEvent.click(screen.getByText('Cadastrar'));
 
         expect(formName).toBe(name);
         expect(formEmail).toBe(email);
         expect(formPass).toBe(pass);
-        expect(formConfirmPass).toBe(confirmPass);
     });
 });
