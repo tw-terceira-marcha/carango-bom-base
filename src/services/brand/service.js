@@ -1,42 +1,54 @@
 import { basePost, baseGet, baseDelete, basePut } from '../base-service';
-const route = 'brand/';
+const route = 'brands/';
 
 const BrandService = {
     async create(brand) {
-        const { status, body, ok } = await basePost(route, brand);
+        const response = await basePost(route, brand);
+        const { status, ok } = response;
+        const body = await response.json();
+
         if (ok) {
-            const data = await body.json();
+            const data = body;
             return { ok, status, data };
         } else {
-            return { ok, status, data: null };
+            return { ok, status, data: [] };
         }
     },
 
     async update(brand) {
-        const { status, body, ok } = await basePut(route, brand);
+        const response = await basePut(route, brand);
+        const { status, ok } = response;
+        const body = await response.json();
+
         if (ok) {
-            const data = await body.json();
+            const data = body;
             return { ok, status, data };
         } else {
-            return { ok, status, data: null };
+            return { ok, status, data: [] };
         }
     },
 
     async getById(id) {
         const routeById = route + id;
-        const { status, body, ok } = await baseGet(routeById);
+        const response = await baseGet(routeById);
+        const { status, ok } = response;
+        const body = await response.json();
+
         if (ok) {
-            const data = await body.json();
+            const data = body;
             return { ok, status, data };
         } else {
-            return { ok, status, data: null };
+            return { ok, status, data: [] };
         }
     },
 
     async getList() {
-        const { status, body, ok } = await baseGet(route);
+        const response = await baseGet(route);
+        const { status, ok } = response;
+        const body = await response.json();
+
         if (ok) {
-            const data = await body.json();
+            const data = body;
             return { ok, status, data };
         } else {
             return { ok, status, data: [] };
@@ -45,12 +57,15 @@ const BrandService = {
 
     async deleteById(id) {
         const routeDelete = route + id;
-        const { status, body, ok } = await baseDelete(routeDelete);
+        const response = await baseDelete(routeDelete);
+        const { status, ok } = response;
+        const body = await response.json();
+
         if (ok) {
-            const data = await body.json();
+            const data = body;
             return { ok, status, data };
         } else {
-            return { ok, status, data: null };
+            return { ok, status, data: [] };
         }
     }
 };
