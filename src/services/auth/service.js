@@ -1,6 +1,6 @@
 import { basePost } from '../base-service';
 const authRoute = 'auth';
-const userRoute = 'user';
+const userRoute = 'users';
 
 const AuthService = {
     async login(email, password) {

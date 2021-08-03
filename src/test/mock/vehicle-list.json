@@ -1,32 +1,32 @@
 [
     {
         "id": 1,
-        "marca": {
+        "brand": {
             "id": 1,
-            "nome": "Ford"
+            "name": "Ford"
         },
-        "modelo": "Ka",
-        "ano": 2019,
-        "valor": 20000
+        "model": "Ka",
+        "year": 2019,
+        "value": 20000
     },
     {
         "id": 2,
-        "marca": {
+        "brand": {
             "id": 2,
-            "nome": "VW"
+            "name": "VW"
         },
-        "modelo": "Polo",
-        "ano": 2018,
-        "valor": 30000
+        "model": "Polo",
+        "year": 2018,
+        "value": 30000
     },
     {
         "id": 3,
-        "marca": {
+        "brand": {
             "id": 2,
-            "nome": "Chevrolet"
+            "name": "Chevrolet"
         },
-        "modelo": "Onix",
-        "ano": 2021,
-        "valor": 15000
+        "model": "Onix",
+        "year": 2021,
+        "value": 15000
     }
 ]

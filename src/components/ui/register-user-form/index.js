@@ -32,6 +32,7 @@ const RegisterUserForm = ({onSubmit}) => {
 
     const submit = (event) => {
         // TODO: confirm password
+        console.log(confirmPass);
         onSubmit(name, login, pass);
         event.preventDefault();
     };

@@ -12,7 +12,7 @@ const error = require('./../mock/vehicle-error.json');
 
 const setupGetServer = (response) => {
     const server = setupServer(
-        rest.get(process.env.REACT_APP_API_BASE_URL + 'veiculos', (req, res, ctx) => {
+        rest.get(process.env.REACT_APP_API_BASE_URL + 'vehicles', (req, res, ctx) => {
             return res(ctx.json(response));
         })
     );
@@ -32,9 +32,9 @@ test('loads and displays a list of vehicle cards', async () => {
     listItems.forEach((item, index) => {
 
         const { getByText } = within(item);
-        const { modelo } = list[index];
+        const { model } = list[index];
 
-        expect(getByText(modelo)).toBeInTheDocument();
+        expect(getByText(model)).toBeInTheDocument();
     });
 
     server.close();
