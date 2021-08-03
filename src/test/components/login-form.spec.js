@@ -122,7 +122,7 @@ describe(
             render(<LoginForm onSubmit={submit}/>);
 
             fireEvent.click(screen.getByText('Entrar'));
-
+            
             expect(formUser).toBe(user);
             expect(formPass).toBe(pass);
         });

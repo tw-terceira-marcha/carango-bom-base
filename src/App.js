@@ -62,10 +62,10 @@ function App() {
                                 <BrandRegister></BrandRegister>
                             </Route>
                             <Route path="/">
-                                <HomePage></HomePage>
+                                <BrandList></BrandList>
                             </Route>
                             <Route path="/brand-list">
-                                <BrandList></BrandList>
+                                <HomePage></HomePage>
                             </Route>
                         </Switch>
                     </Container>
