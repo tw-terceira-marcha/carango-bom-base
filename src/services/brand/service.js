@@ -16,7 +16,7 @@ const BrandService = {
     },
 
     async update(brand) {
-        const response = await basePut(route, brand);
+        const response = await basePut(route + brand.id, brand);
         const { status, ok } = response;
         const body = await response.json();
 

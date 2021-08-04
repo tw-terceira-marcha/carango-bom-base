@@ -14,8 +14,8 @@ const useErrors = (validations) => {
     };
 
     const canSend = () => {
-        for (let campo in errors) {
-            if (!errors[campo].valido) {
+        for (let field in errors) {
+            if (!errors[field].valid) {
                 return false;
             }
         }
@@ -28,7 +28,7 @@ const useErrors = (validations) => {
 const createInitialState = (validations) => {
     const initialState = {};
     for (let field in validations) {
-        initialState[field] = { valido: true, texto: '' };
+        initialState[field] = { valid: true, message: '' };
     }
 
     return initialState;

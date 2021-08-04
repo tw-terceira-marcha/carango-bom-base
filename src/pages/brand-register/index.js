@@ -17,7 +17,7 @@ const BrandRegister = () => {
             if (data && data.length >= 3) {
                 return { valid: true };
             } else {
-                return { valid: false, text: 'Marca deve ter ao menos 3 letras.' };
+                return { valid: false, message: 'Marca deve ter ao menos 3 letras.' };
             }
         }
     };
@@ -28,38 +28,33 @@ const BrandRegister = () => {
         history.goBack();
     };
 
-    // TODO: Avaliar remover disable na próxima linha
-    useEffect(() => {
+    useEffect(async () => {
         if (id) {
-            BrandService.getById(id)
-                .then(m => setBrand(m.name));
+            const { data } = await BrandService.getById(id);
+            setBrand(data.name);
         }
-    }, [id]); // eslint-disable-line
+    }, [id]);
+
+    const submit = async (event) => {
+        event.preventDefault();
+        if (id) {
+            await BrandService.update({ id, name: brand });
+            history.goBack();
+        } else {
+            await BrandService.create({ name: brand });
+            setBrand('');
+            history.goBack();
+        }
+    };
 
     return (
-        <form onSubmit={(event) => {
-            event.preventDefault();
-            if (canSend()) {
-                if (id) {
-                    BrandService.update({ id, name: brand })
-                        .then(() => {
-                            history.goBack();
-                        });
-                } else {
-                    BrandService.create({ name: brand })
-                        .then(() => {
-                            setBrand('');
-                            history.goBack();
-                        });
-                }
-            }
-        }}>
+        <form onSubmit={submit}>
             <TextField
                 value={brand}
                 onChange={evt => setBrand(evt.target.value)}
                 onBlur={validateFields}
-                helperText={errors.brand.text}
-                error={!errors.brand.valido}
+                helperText={errors.brand.message}
+                error={!errors.brand.valid}
                 name="brand"
                 id="brand"
                 label="Marca"
@@ -74,7 +69,8 @@ const BrandRegister = () => {
                 variant="contained"
                 color="primary"
                 type="submit"
-                disabled={!canSend()}>
+                disabled={!canSend()}
+            >
                 {id ? 'Alterar' : 'Cadastrar'}
             </Button>
 

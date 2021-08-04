@@ -1,13 +1,17 @@
 import { List, ListItem, ListItemText, SwipeableDrawer } from '@material-ui/core';
 import React from 'react';
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 
 const ApplicationMainMenu = ({ menuOpen, setMenuOpen, setModalOpen }) => {
 
     const MainMenuOptions = () => {
-        // const history = useHistory();
+        const history = useHistory();
 
-        const options = [{ name: 'Entrar', action: () => setModalOpen(true) }];
+        const options = [
+            { name: 'Entrar', action: () => setModalOpen(true), testId: 'login-button'},
+            { name: 'Veiculos', action: () => history.push('/vehicles') , testId: 'vehicle-button'},
+            { name: 'Marcas', action: () => history.push('/brand-list'), testId: 'brand-button'},
+        ];
 
         // const optionsLogged = [
         //     { name: 'Veiculos', action: () => history.push('/vehicles') },
@@ -28,7 +32,7 @@ const ApplicationMainMenu = ({ menuOpen, setMenuOpen, setModalOpen }) => {
                 <List>
                     {options.map((option) => (
                         <ListItem button key={option.name} data-testid='menu-item' onClick={option.action}>
-                            <ListItemText primary={option.name} data-testid='login-button'/>
+                            <ListItemText primary={option.name} data-testid={option.testId}/>
                         </ListItem>
                     ))}
                 </List>

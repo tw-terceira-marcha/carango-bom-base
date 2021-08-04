@@ -56,16 +56,16 @@ function App() {
                     <Container component="article" maxWidth="md">
                         <Switch>
                             <Route path="/cadastro-marca">
-                                <BrandRegister></BrandRegister>
+                                <BrandRegister />
                             </Route>
                             <Route path='/alteracao-marca/:id'>
-                                <BrandRegister></BrandRegister>
-                            </Route>
-                            <Route path="/">
-                                <BrandList></BrandList>
+                                <BrandRegister />
                             </Route>
                             <Route path="/brand-list">
-                                <HomePage></HomePage>
+                                <BrandList />
+                            </Route>
+                            <Route path="/">
+                                <HomePage />
                             </Route>
                         </Switch>
                     </Container>

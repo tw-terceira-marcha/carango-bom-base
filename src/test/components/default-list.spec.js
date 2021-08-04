@@ -79,22 +79,6 @@ describe(
             expect(add).toBeCalledTimes(1);
         }));
 
-        test('verify if add function is being called', () => act(async () => {
-
-            const add = jest.fn();
-            const items = [];
-
-            const columns = [
-                { field: 'name', headerName: 'Nome', width: 200 }
-            ];
-
-            render(<DefaultList load={() => items} columns={columns} add={add} />);
-
-            screen.getByTestId('default-list-add-button').click();
-
-            expect(add).toBeCalledTimes(1);
-        }));
-
         test('verify if update function is being called', () => act(async () => {
 
             const update = jest.fn();
