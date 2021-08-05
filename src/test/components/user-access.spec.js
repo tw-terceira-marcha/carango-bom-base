@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import UserAccess from '../../components/container/user-access';
 
@@ -16,16 +14,16 @@ jest.mock('../../components/ui/login-form', () => {
     return {
         __esModule: true,
         A: true,
-        default: ({onSubmit, registerOpen}) => {
+        default: ({ onSubmit, registerOpen }) => {
             const gambiarra = async () => {
                 await onSubmit(mockEmail, mockPass);
             };
 
             return (
                 <div>
-                  <button onClick={() => gambiarra()}
-                            data-testid='login-test-submit'/>
-                    <button onClick={registerOpen} data-testid='test-registerOpen'/>
+                    <button onClick={() => gambiarra()}
+                        data-testid='login-test-submit' />
+                    <button onClick={registerOpen} data-testid='test-registerOpen' />
                 </div>
             );
         },
@@ -36,11 +34,11 @@ jest.mock('../../components/ui/register-user-form', () => {
     return {
         __esModule: true,
         A: true,
-        default: ({onSubmit}) => {
+        default: ({ onSubmit }) => {
             return (
                 <div>
                     <button onClick={() => onSubmit(mockName, mockEmail, mockPass)}
-                            data-testid='register-test-submit'/>
+                        data-testid='register-test-submit' />
                 </div>
             );
         },
@@ -80,7 +78,7 @@ jest.mock('../../services/auth/service.js', () => {
 
 
 test('login submit form dispatch', async () => {
-    render(<UserAccess openModal={true} setModalOpen={() => {}} />);
+    render(<UserAccess openModal={true} setModalOpen={() => { }} />);
 
     fireEvent.click(screen.getByTestId('login-test-submit'));
 });
@@ -101,7 +99,7 @@ test('login submit form dispatch', async () => {
 
 
 test('register submit form dispatch', async () => {
-    render(<UserAccess openModal={true} setModalOpen={() => {}} />);
+    render(<UserAccess openModal={true} setModalOpen={() => { }} />);
 
     fireEvent.click(screen.getByTestId('test-registerOpen'));
     fireEvent.click(screen.getByTestId('register-test-submit'));

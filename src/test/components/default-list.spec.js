@@ -24,7 +24,7 @@ describe(
                 { id: 2, name: 'apple' }
             ];
 
-            const loadItems = jest.fn(() => items);
+            const loadItems = jest.fn(async () => items);
 
             const columns = [
                 { field: 'name', headerName: 'Nome', width: 200 }
