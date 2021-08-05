@@ -55,7 +55,7 @@ function App() {
                 <UserAccess openModal={openModal} setModalOpen={setModalOpen} />
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Container component="article" maxWidth="md">
+                    <Container component="article" maxWidth="md" className='page-container'>
                         <Switch>
                             <Route path="/brand-register">
                                 <BrandRegister />
