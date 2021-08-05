@@ -36,7 +36,12 @@ describe(
     () => {
         test('verify if vehicle list is being loaded', () => act(async () => {
             render(<VehicleList></VehicleList>);
-            await screen.findByText(mockVehicleList[0].model);
+            await screen.findByText(
+                mockVehicleList[0].model,
+                {},
+                // This timeout is necessary in order for the test not to be flaky.
+                { timeout: 2000 }
+            );
 
             const listRows = screen.getAllByRole('row');
             expect(listRows).toHaveLength(
