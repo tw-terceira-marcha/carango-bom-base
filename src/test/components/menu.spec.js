@@ -76,7 +76,7 @@ describe('test menu interaction', () => {
     test('vehicle click in menu', () => {
         render(
             <div>
-                <Route path="/vehicles">
+                <Route path="/vehicle-list">
                     <p>Teste</p>
                 </Route>
                 <Route path="/">
@@ -86,7 +86,7 @@ describe('test menu interaction', () => {
             </div>
             ,{ wrapper: MemoryRouter });
         expect(screen.getByText('Te')).toBeVisible();
-        fireEvent.click(screen.getByTestId('vehicle-button'));  
+        fireEvent.click(screen.getByTestId('vehicle-list'));  
         expect(screen.getByText('Teste')).toBeVisible();
     });
     test('brand list click in menu', () => {
