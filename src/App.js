@@ -11,6 +11,8 @@ import HomePage from './pages/home-page';
 import ApplicationHeader from './components/ui/header';
 import ApplicationMainMenu from './components/container/main-menu';
 import UserAccess from './components/container/user-access';
+import VehicleRegister from './pages/vehicle-register';
+import VehicleList from './pages/vehicle-list';
 
 const muiTheme = createMuiTheme({
     palette: {
@@ -55,14 +57,23 @@ function App() {
                     <div className={classes.toolbar} />
                     <Container component="article" maxWidth="md">
                         <Switch>
-                            <Route path="/cadastro-marca">
+                            <Route path="/brand-register">
                                 <BrandRegister />
                             </Route>
-                            <Route path='/alteracao-marca/:id'>
+                            <Route path='/brand-update/:id'>
                                 <BrandRegister />
                             </Route>
                             <Route path="/brand-list">
                                 <BrandList />
+                            </Route>
+                            <Route path="/vehicle-register">
+                                <VehicleRegister />
+                            </Route>
+                            <Route path='/vehicle-update/:id'>
+                                <VehicleRegister />
+                            </Route>
+                            <Route path="/vehicle-list">
+                                <VehicleList />
                             </Route>
                             <Route path="/">
                                 <HomePage />

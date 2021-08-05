@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
+    "@unicef/material-ui-currency-textfield": "^0.8.6",
     "fontsource-roboto": "^4.0.0",
     "msw": "^0.32.1",
     "node-sass": "^4.14.1",

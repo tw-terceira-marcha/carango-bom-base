@@ -7,7 +7,7 @@ import LoginForm from '../../components/ui/login-form';
 import Modal from '../../components/ui/modal';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-const optionNames = ['Entrar', 'Veiculos', 'Marcas'];
+const optionNames = ['Home Page', 'Entrar', 'Veiculos', 'Marcas'];
 
 describe('menu login tests', () => { 
     test('menu when the user is not logged', async () => {

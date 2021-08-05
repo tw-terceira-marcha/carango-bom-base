@@ -18,15 +18,5 @@
         "model": "Polo",
         "year": 2018,
         "value": 30000
-    },
-    {
-        "id": 3,
-        "brand": {
-            "id": 2,
-            "name": "Chevrolet"
-        },
-        "model": "Onix",
-        "year": 2021,
-        "value": 15000
     }
 ]

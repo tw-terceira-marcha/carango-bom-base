@@ -8,13 +8,13 @@ const ApplicationMainMenu = ({ menuOpen, setMenuOpen, setModalOpen }) => {
         const history = useHistory();
 
         const options = [
+            { name: 'Home Page', action: () => history.push('/'), testId: 'home-page-button'},
             { name: 'Entrar', action: () => setModalOpen(true), testId: 'login-button'},
-            { name: 'Veiculos', action: () => history.push('/vehicles') , testId: 'vehicle-button'},
             { name: 'Marcas', action: () => history.push('/brand-list'), testId: 'brand-button'},
+            { name: 'Veiculos', action: () => history.push('/vehicle-list'), testId: 'vehicle-list'},
         ];
 
         // const optionsLogged = [
-        //     { name: 'Veiculos', action: () => history.push('/vehicles') },
         //     { name: 'Marcas', action: () => history.push('/brands') },
         //     { name: 'Usuários', action: () => history.push('/users') },
         //     { name: 'Dashboard', action: () => history.push('/dashboard') },

@@ -12,7 +12,7 @@ const BrandList = () => {
     const history = useHistory();
 
     const updateBrand = (brandId) => {
-        history.push('/alteracao-marca/' + brandId);
+        history.push('/brand-update/' + brandId);
     };
 
     const deleteBrand = async (brandId) => {
@@ -20,7 +20,7 @@ const BrandList = () => {
     };
 
     const addBrand = async () => {
-        history.push('/cadastro-marca');
+        history.push('/brand-register');
     };
 
     const loadBrands = async () => {
