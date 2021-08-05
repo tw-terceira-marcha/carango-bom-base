@@ -28,6 +28,11 @@ const BrandRegister = () => {
         history.goBack();
     };
 
+    const changeInput = (event) => {
+        setBrand(event.target.value);
+        event.preventDefault();
+    };
+
     useEffect(async () => {
         if (id) {
             const { data } = await BrandService.getById(id);
@@ -42,7 +47,6 @@ const BrandRegister = () => {
             history.goBack();
         } else {
             await BrandService.create({ name: brand });
-            setBrand('');
             history.goBack();
         }
     };
@@ -50,8 +54,8 @@ const BrandRegister = () => {
     return (
         <form onSubmit={submit}>
             <TextField
-                value={brand}
-                onChange={evt => setBrand(evt.target.value)}
+                // value={brand}
+                onChange={changeInput}
                 onBlur={validateFields}
                 helperText={errors.brand.message}
                 error={!errors.brand.valid}
@@ -62,13 +66,13 @@ const BrandRegister = () => {
                 variant="outlined"
                 fullWidth
                 required
-                margin="normal"
+                inputProps={{ 'data-testid': 'input-register-brand' }}
             />
-
             <Button
                 variant="contained"
                 color="primary"
                 type="submit"
+                data-testid='button-register-brand'
                 disabled={!canSend()}
             >
                 {id ? 'Alterar' : 'Cadastrar'}
@@ -77,6 +81,7 @@ const BrandRegister = () => {
             <Button
                 variant="contained"
                 color="secondary"
+                data-testid='cancel-register-brand'
                 onClick={cancel}>
                 Cancelar
             </Button>
