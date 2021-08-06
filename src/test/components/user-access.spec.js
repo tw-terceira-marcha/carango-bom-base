@@ -15,13 +15,11 @@ jest.mock('../../components/ui/login-form', () => {
         __esModule: true,
         A: true,
         default: ({ onSubmit, registerOpen }) => {
-            const gambiarra = async () => {
-                await onSubmit(mockEmail, mockPass);
-            };
+            const submit = () => onSubmit(mockEmail, mockPass);
 
             return (
                 <div>
-                    <button onClick={() => gambiarra()}
+                    <button onClick={submit}
                         data-testid='login-test-submit' />
                     <button onClick={registerOpen} data-testid='test-registerOpen' />
                 </div>
