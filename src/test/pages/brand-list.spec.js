@@ -35,7 +35,7 @@ describe(
     () => {
         test('verify if brand list is being loaded', () => act(async () => {
             render(<BrandList></BrandList>);
-            await screen.findByText(mockBrandList[0].name);
+            await screen.findByText(mockBrandList[0].name, {} , {timeout: 2000});
 
             const listRows = screen.getAllByRole('row');
             expect(listRows).toHaveLength(
@@ -55,7 +55,7 @@ describe(
             expect(deleteButton).toBeVisible();
             expect(deleteButton).toBeDisabled();
 
-            const element = await screen.findByText(mockBrandList[0].name);
+            const element = await screen.findByText(mockBrandList[0].name, {} , {timeout: 2000});
             fireEvent.click(element);
 
             expect(deleteButton).not.toBeDisabled();

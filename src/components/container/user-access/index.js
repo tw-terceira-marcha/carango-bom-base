@@ -35,11 +35,15 @@ const UserAccess = ({openModal, setModalOpen}) => {
         }
 
     };
+    const onClose = () => {
+        setModalOpen(false);
+        setOpenRegister(false);
+    };
 
     return (
         <Modal
             open={openModal}
-            onClose={() => setModalOpen(false)}
+            onClose={onClose}
             Component={
                 openRegister ?
                     <RegisterUserForm onSubmit={userRegister} /> :
