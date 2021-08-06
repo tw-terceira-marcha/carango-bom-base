@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import './styles.scss';
 
 
-const RegisterUserForm = ({onSubmit}) => {
-    const [ name, setName ] = useState('');
-    const [ login, setLogin ] = useState('');
-    const [ pass, setPass ] = useState('');
+const RegisterUserForm = ({ onSubmit }) => {
+    const [name, setName] = useState('');
+    const [login, setLogin] = useState('');
+    const [pass, setPass] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
+    const [error, setError] = useState(false);
+
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -30,9 +33,12 @@ const RegisterUserForm = ({onSubmit}) => {
         e.preventDefault();
     };
 
-    const submit = (event) => {
-        // TODO: confirm password
-        console.log(confirmPass);
+    const submit =async (event) => {
+        if (confirmPass !== pass) {
+            setError('Senhas diferentes, insira a senha novamente');
+            event.preventDefault();
+            return;
+        }
         onSubmit(name, login, pass);
         event.preventDefault();
     };
@@ -43,7 +49,17 @@ const RegisterUserForm = ({onSubmit}) => {
             className='register-form'
             data-testid='register-form'
         >
-            <div className='register-inputs'>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                open={!!error}
+                autoHideDuration={6000}
+                onClose={() => {}}
+                message={error}
+            />
+            <div className='register-inputs' >
                 <TextField
                     type='text'
                     placeholder="Nome"
