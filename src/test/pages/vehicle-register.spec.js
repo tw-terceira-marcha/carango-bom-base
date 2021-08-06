@@ -8,9 +8,9 @@ import userEvent from '@testing-library/user-event';
 import VehicleRegister from '../../pages/vehicle-register'; 
 
 const mockModel = 'test';
-const mockValue = 25000;
-const mockYear = 2021;
-const mockId = 42;
+const mockValue = '25000';
+const mockYear = '2021';
+const mockId = '42';
 
 jest.mock('../../services/vehicle/service.js', () => {
     return {
@@ -55,7 +55,10 @@ describe('Vehicle Register', () => {
                 <VehicleRegister />
             </Router>
         );
-        expect(screen.getByTestId('input-register-vehicle')).toBeVisible();
+        expect(screen.getByTestId('input-register-vehicle-brand')).toBeVisible();
+        expect(screen.getByTestId('input-register-vehicle-model')).toBeVisible();
+        expect(screen.getByTestId('input-register-vehicle-year')).toBeVisible();
+        expect(screen.getByTestId('input-register-vehicle-value')).toBeVisible();
         expect(screen.getByTestId('button-register-vehicle')).toBeVisible();
         expect(screen.getByTestId('cancel-register-vehicle')).toBeVisible();
     });
@@ -78,12 +81,12 @@ describe('Vehicle Register', () => {
 
         expect(await screen.findByText('Veiculo deve ter ao menos 3 letras.')).toBeVisible();     
         
-        userEvent.type(valueInput, 0);
+        userEvent.type(valueInput, '0');
         fireEvent.focusOut(valueInput);
 
         expect(await screen.findByText('Veiculo deve ter preço maior do que 0.')).toBeVisible();     
         
-        userEvent.type(yearInput, 1900);
+        userEvent.type(yearInput, '1900');
         fireEvent.focusOut(yearInput);
 
         expect(await screen.findByText('Veiculo deve ser de um ano maior que 1900.')).toBeVisible();
