@@ -1,5 +1,5 @@
 import { baseDelete, baseGet, basePost, basePut } from '../base-service';
-const route = 'vehicles';
+const route = 'vehicles/';
 const VehicleService = {
     async create(vehicle) {
         const response = await basePost(route, vehicle);
